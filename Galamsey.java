@@ -1,5 +1,4 @@
-package theGalamseyArea;
-
+//package theGalamseyArea;
 
 /**
  *A Galamsey class that identifies or detects Galamsey areas.
@@ -22,7 +21,6 @@ public class Galamsey {
 	 */
 	public Galamsey() {};
 	
-
 	/**
 	 * Overloaded constructor 1
 	 * @param vegCol represents the vegetation colour
@@ -62,9 +60,9 @@ public class Galamsey {
 		this.yearOfEvent = EventYear;
 		};
 		
-		/**
+				     /**
 		                     * SETTER/MUTATOR METHODS FOR GALAMSEY CLASS
-		 */
+		 		     */
 		
 		/**
 		 * Mutator method for color of vegetation 
@@ -106,9 +104,9 @@ public class Galamsey {
 		}
 
 		
-		/**
+					/**
          				* GETTER/ACCESSOR METHODS FOR GALAMSEY CLASS
-         */
+         				*/
 
 		/**
 		 * Accessor method for colour of vegetation
@@ -167,7 +165,7 @@ public class Galamsey {
 		public boolean equals(Object otherGalamsey) {
 			
 			//Comparing the instance variables/values of Galamsey Objects
-			//Using "equals" BUT "==" for primitives (i.e. double,int)
+			//Using "equals" BUT "==" for primitives (i.e. double,int etc.)
 			
 			//Checking if the calling object (i.e. Galamsey object) is at the same memory address
 			//as Object "otherGalamsey"
@@ -181,7 +179,7 @@ public class Galamsey {
 			if(!(otherGalamsey instanceof Galamsey)) return false;
 					
 				return(  this.vegetationColour.equals(((Galamsey)otherGalamsey).vegetationColour) && 
-						this.colourValue==(((Galamsey)otherGalamsey).colourValue) &&
+					this.colourValue==(((Galamsey)otherGalamsey).colourValue) &&
 					this.latitude==(((Galamsey)otherGalamsey).latitude) &&
 					this.longitude==(((Galamsey)otherGalamsey).longitude) &&
 					this.yearOfEvent==(((Galamsey)otherGalamsey).yearOfEvent) ); 
@@ -190,8 +188,14 @@ public class Galamsey {
 		/**
 		 * 
 		 * @param args
+		 *Operations are performed in the main method
 		 */
 		public static void main(String[] args) {
+			
+			/**
+			 * Instantiation of two Galamsey Classes with their necessary parameter
+			 */
+			
 			Galamsey areaOne = new Galamsey("Blue",8,3.88,4.00,2019);
 			Galamsey areaTwo = new Galamsey("Green",8,3.78,4.00,2018);
 			
@@ -200,11 +204,6 @@ public class Galamsey {
 			
 			System.out.println("\nareaOne.equals(areaTwo): " + areaOne.equals(areaTwo));
 			System.out.println("\nareaOne.equals(areaOne): " + areaOne.equals(areaOne));
-			
-			
 		}
-		
-		
-
 }
 	
