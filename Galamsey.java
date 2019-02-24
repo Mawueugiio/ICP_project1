@@ -151,7 +151,8 @@ public class Galamsey {
 		
 		
 		/**
-		 * WRITNG IN THE Degree Minute Second FORMAT
+		 * Writing in the Degree Minute Second Format
+		 * @return the value of the value of both the latitude and longitude in the Degree Minute Seconds Format
 		 */
 		public  String getFormattedLocationOfVegetationLatitudeandLongitude(){
 			try {
