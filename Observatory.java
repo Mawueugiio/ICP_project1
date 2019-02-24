@@ -25,18 +25,18 @@ public class Observatory {
      * @param areaInSquareMeters
      * @param events
      */
-    public Observatory(String name, String country, int yearStarted, double areaInSquareMeters, ArrayList<Galamsey> events) {
+    public Observatory(String name, String country, int yearStarted, double areaInSquareKilometers, ArrayList<Galamsey> events) {
         this.name = name;
         this.country = country;
         this.yearStarted = yearStarted;
-        this.areaInSquareKilometers = areaInSquareMeters;
+        this.areaInSquareKilometers = areaInSquareKilometers;
         this.events = events;
     }
-    public Observatory(String name, String country, int yearStarted, double areaInSquareMeters) {
+    public Observatory(String name, String country, int yearStarted, double areaInSquareKilometers) {
         this.name = name;
         this.country = country;
         this.yearStarted = yearStarted;
-        this.areaInSquareKilometers = areaInSquareMeters;
+        this.areaInSquareKilometers = areaInSquareKilometers;
     }
     public void addEvent(Galamsey g){ this.events.add(g);}
 
@@ -101,7 +101,6 @@ public class Observatory {
         if(green>=yellow && green>=brown){return 1;}
         return 0;
     }
-
     /**
      * gets the average galamsey colour value recorded
      * @return average galamsey colour value recorded
@@ -115,7 +114,6 @@ public class Observatory {
         }
         return sum / count;
     }
-
     /**
      * Creates a list of all “galamsey” recorded at the observatory with a colour value greater than a given number
      * @param number arbitrary number to compare colour values to
@@ -123,10 +121,7 @@ public class Observatory {
      */
     public ArrayList<Galamsey> galamseysWithColourValueGreaterThan(double number){
         ArrayList<Galamsey> list = new ArrayList<Galamsey>();
-        for (Galamsey i : this.getEvents()) {
-            if(i.getVegetationColourValue()>number){list.add(i);}
-        }
+        for (Galamsey i : this.getEvents()) { if(i.getVegetationColourValue()>number){list.add(i); }
         return list;
     }
-
 }
