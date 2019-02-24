@@ -228,8 +228,8 @@ public class Galamsey {
 			/**
 			 * Instantiation of two Galamsey Classes with their necessary parameter
 			 */
-			Galamsey areaOne = new Galamsey("Blue",8,-3.88,-4.00,2019);
-			Galamsey areaTwo = new Galamsey("Green",8,3.78,4.00,2018);
+			Galamsey areaOne = new Galamsey("Blue",2,-3.88,-4.00,2019);
+			Galamsey areaTwo = new Galamsey("Green",3,3.78,4.00,2018);
 			
 			System.out.println("Area One: " + areaOne.toString());
 			System.out.println("\nArea Two: " + areaTwo.toString());
