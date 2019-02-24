@@ -21,6 +21,7 @@ public class Galamsey {
 	 */
 	public Galamsey() {};
 	
+
 	/**
 	 * Overloaded constructor 1
 	 * @param vegCol represents the vegetation colour
@@ -60,9 +61,9 @@ public class Galamsey {
 		this.yearOfEvent = EventYear;
 		};
 		
-				     /**
+		/**
 		                     * SETTER/MUTATOR METHODS FOR GALAMSEY CLASS
-		 		     */
+		 */
 		
 		/**
 		 * Mutator method for color of vegetation 
@@ -104,9 +105,9 @@ public class Galamsey {
 		}
 
 		
-					/**
+		/**
          				* GETTER/ACCESSOR METHODS FOR GALAMSEY CLASS
-         				*/
+         */
 
 		/**
 		 * Accessor method for colour of vegetation
@@ -148,13 +149,45 @@ public class Galamsey {
 			return yearOfEvent;
 		}
 		
+		
+		/**
+		 * WRITNG IN THE Degree Minute Second FORMAT
+		 */
+		public  String getFormattedLocationOfVegetationLatitudeandLongitude(){
+			try {
+			    int latSeconds = (int) Math.round(this.latitude * 3600);
+			    int latDegrees = latSeconds / 3600;
+			    latSeconds = Math.abs(latSeconds % 3600);
+			    int latMinutes = latSeconds / 60;
+			    latSeconds %= 60;
+
+			    int longSeconds = (int) Math.round(this.longitude * 3600);
+			    int longDegrees = longSeconds / 3600;
+			    longSeconds = Math.abs(longSeconds % 3600);
+			    int longMinutes = longSeconds / 60;
+			    longSeconds %= 60;
+			    
+			    String latDegree = latDegrees >= 0 ? "N" : "S";
+			    String lonDegrees = longDegrees >= 0 ? "E" : "W";
+
+			    return  Math.abs(latDegrees) + "°" + latMinutes + "'" + latSeconds
+			            + "\"" + latDegree +" "+ Math.abs(longDegrees) + "°" + longMinutes
+			            + "'" + longSeconds + "\"" + lonDegrees;
+			} catch (Exception e) {
+			    return ""+ String.format("%8.5f", latitude) + "  "
+			            + String.format("%8.5f", longitude) ;
+			}
+
+	}
+		
+		
 		/**
 		 * AUXILIARY METHOD 1
 		 * toString method for Galamsey class
 		 */
 		public String toString() {
 			return ("The colour of the vegetation is "+ getVegetationColour()+" with an assigned colour value of "
-		+getVegetationColourValue()+" with the coordinates, " + getVegetationLatitude() + "," + getVegetationLongitude()+
+		+getVegetationColourValue()+" with the coordinates, " + getFormattedLocationOfVegetationLatitudeandLongitude() + 
 		" which happened on in the year " + getEventYear());
 		}
 		
@@ -165,7 +198,7 @@ public class Galamsey {
 		public boolean equals(Object otherGalamsey) {
 			
 			//Comparing the instance variables/values of Galamsey Objects
-			//Using "equals" BUT "==" for primitives (i.e. double,int etc.)
+			//Using "equals" BUT "==" for primitives (i.e. double,int)
 			
 			//Checking if the calling object (i.e. Galamsey object) is at the same memory address
 			//as Object "otherGalamsey"
@@ -179,7 +212,7 @@ public class Galamsey {
 			if(!(otherGalamsey instanceof Galamsey)) return false;
 					
 				return(  this.vegetationColour.equals(((Galamsey)otherGalamsey).vegetationColour) && 
-					this.colourValue==(((Galamsey)otherGalamsey).colourValue) &&
+						this.colourValue==(((Galamsey)otherGalamsey).colourValue) &&
 					this.latitude==(((Galamsey)otherGalamsey).latitude) &&
 					this.longitude==(((Galamsey)otherGalamsey).longitude) &&
 					this.yearOfEvent==(((Galamsey)otherGalamsey).yearOfEvent) ); 
@@ -188,22 +221,25 @@ public class Galamsey {
 		/**
 		 * 
 		 * @param args
-		 *Operations are performed in the main method
 		 */
 		public static void main(String[] args) {
 			
 			/**
 			 * Instantiation of two Galamsey Classes with their necessary parameter
 			 */
-			
-			Galamsey areaOne = new Galamsey("Blue",8,3.88,4.00,2019);
+			Galamsey areaOne = new Galamsey("Blue",8,-3.88,-4.00,2019);
 			Galamsey areaTwo = new Galamsey("Green",8,3.78,4.00,2018);
 			
-			System.out.println("Area One" + areaOne.toString());
-			System.out.println("\nArea One" + areaTwo.toString());
+			System.out.println("Area One: " + areaOne.toString());
+			System.out.println("\nArea Two: " + areaTwo.toString());
 			
 			System.out.println("\nareaOne.equals(areaTwo): " + areaOne.equals(areaTwo));
 			System.out.println("\nareaOne.equals(areaOne): " + areaOne.equals(areaOne));
+			
+			
 		}
+		
+		
+
 }
 	
