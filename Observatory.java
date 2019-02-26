@@ -123,5 +123,5 @@ public class Observatory {
         ArrayList<Galamsey> list = new ArrayList<Galamsey>();
         for (Galamsey i : this.getEvents()) { if(i.getVegetationColourValue()>number){list.add(i); }
         return list;
-    }
+      }
 }
